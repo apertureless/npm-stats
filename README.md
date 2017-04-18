@@ -4,7 +4,7 @@
 
 ## Visit
 
-[www.npm-stats.org](www.npm-stats.org)
+[www.npm-stats.org](http://www.npm-stats.org)
 
 ## Build Setup
 
