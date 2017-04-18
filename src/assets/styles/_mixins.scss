@@ -1,0 +1,61 @@
+@mixin container() {
+  max-width: $base-container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@mixin fill-parent() {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+@mixin unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+@mixin unclickable {
+  @include unselectable;
+  pointer-events: none;
+}
+
+@mixin hover-active-states() {
+  &:hover, &:focus, &:active {
+    @content;
+  }
+}
+
+@mixin center-vertically() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin center-horizontally() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center() {
+  @include center-vertically();
+  @include center-horizontally();
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin unstyled-list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

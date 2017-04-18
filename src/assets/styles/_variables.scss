@@ -1,0 +1,14 @@
+@import "~normalize.css/normalize.css";
+@import "~@nextindex/next-scss/next-scss";
+@import "mixins";
+@import "colors";
+
+$base-font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$heading-font-family: $base-font-family;
+$base-font-size: rem(16);
+$base-line-height: 1.3;
+$base-border-radius: rem(4);
+$base-container-width: rem(1440);
+
+@import "base";
+
