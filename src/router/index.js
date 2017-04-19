@@ -10,6 +10,10 @@ export default new Router({
       path: '/',
       name: 'Start',
       component: StartPage
+    },
+    {
+      path: '/:package',
+      component: StartPage
     }
   ]
 })

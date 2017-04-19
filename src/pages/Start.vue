@@ -2,14 +2,20 @@
   <div class="content">
     <div class="container">
       <div class="Search__container">
-        <input class="Search__input" @keyup.enter="requestData" placeholder="npm package name" type="search" name="search" v-model="package">
+        <input
+          class="Search__input"
+          @keyup.enter="requestData"
+          placeholder="npm package name"
+          type="search" name="search"
+          v-model="package"
+        >
         <button class="Search__button" @click="requestData">Find</button>
       </div>
       <div class="error-message" v-if="showError">
        {{ errorMessage }}
       </div>
       <hr>
-      <h1 class="title" v-if="loaded">{{ package }}</h1>
+      <h1 class="title" v-if="loaded">{{ packageName }}</h1>
       <div class="Chart__container" v-if="loaded">
         <div class="Chart__title">
           Downloads per Day <span>{{ period }}</span>
@@ -18,7 +24,6 @@
         <div class="Chart__content">
           <line-chart v-if="loaded" :chart-data="downloads" :chart-labels="labels"></line-chart>
         </div>
-
       </div>
     </div>
   </div>
@@ -36,12 +41,19 @@
     data () {
       return {
         package: null,
+        packageName: '',
         period: 'last-month',
         loaded: false,
         downloads: [],
         labels: [],
         showError: false,
         errorMessage: 'Please enter a package name'
+      }
+    },
+    mounted () {
+      if (this.$route.params.package) {
+        this.package = this.$route.params.package
+        this.requestData()
       }
     },
     methods: {
@@ -54,20 +66,22 @@
           this.showError = true
           return
         }
-
         this.resetState()
         axios.get(`https://api.npmjs.org/downloads/range/${this.period}/${this.package}`)
           .then(response => {
-            console.log(response)
             this.downloads = response.data.downloads.map(download => download.downloads)
             this.labels = response.data.downloads.map(download => download.day)
-            this.package = response.data.package
+            this.packageName = response.data.package
+            this.setURL()
             this.loaded = true
           })
           .catch(err => {
             this.errorMessage = err.response.data.error
             this.showError = true
           })
+      },
+      setURL () {
+        history.pushState({ info: `npm-stats ${this.package}` }, this.package, `/#/${this.package}`)
       }
     }
   }
