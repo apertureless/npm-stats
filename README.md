@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://i.imgur.com/Xv2xvly.png" alt="npm-stats" title="npm-stats.org" />
+</p>
+
 # npm-stats
 
 > Generate beautiful charts from your npm package statistics
