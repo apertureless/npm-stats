@@ -16,11 +16,13 @@
   "dependencies": {
     "axios": "^0.16.1",
     "chart.js": "^2.5.0",
+    "moment": "^2.18.1",
     "vue": "^2.2.2",
     "vue-analytics": "^4.1.0",
     "vue-chartjs": "^2.6.0",
     "vue-cookie-law": "^1.0.2",
-    "vue-router": "^2.3.0"
+    "vue-router": "^2.3.0",
+    "vuejs-datepicker": "^0.7.7"
   },
   "devDependencies": {
     "@nextindex/next-scss": "^1.1.0",
