@@ -104,9 +104,9 @@
           })
       },
       setURL () {
-        history.pushState({ info: `npm-stats ${this.package}` }, this.package, `/#/${this.package}`)
+        history.pushState({ info: `npm-stats ${this.package}` }, this.package, `${this.package}`)
         this.$ga.page({
-          page: `/#/${this.package}`,
+          page: `/${this.package}`,
           title: this.package,
           location: window.location.href
         })
