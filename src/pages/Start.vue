@@ -23,14 +23,24 @@
        {{ errorMessage }}
       </div>
       <hr>
-      <h1 class="title" v-if="loaded">{{ packageName }}</h1>
+      <package-info :package-name="packageName" :total-downloads="totalDownloads" :period="formattedPeriod" v-if="loaded"></package-info>
       <div class="Chart__container" v-if="loaded">
         <div class="Chart__title">
-          Downloads per Day <span>{{ period }}</span>
+          Downloads per Day <span>{{ formattedPeriod }}</span>
           <hr>
         </div>
         <div class="Chart__content">
           <line-chart v-if="loaded" :chart-data="downloads" :chart-labels="labels"></line-chart>
+        </div>
+      </div>
+
+      <div class="Chart__container" v-if="loaded">
+        <div class="Chart__title">
+          Downloads per Year <span>{{ formattedPeriod }}</span>
+          <hr>
+        </div>
+        <div class="Chart__content">
+          <line-chart v-if="loaded" :chart-data="downloadsYear" :chart-labels="labelsYear"></line-chart>
         </div>
       </div>
     </div>
@@ -39,13 +49,18 @@
 
 <script>
   import axios from 'axios'
-  import moment from 'moment'
   import Datepicker from 'vuejs-datepicker'
+
   import LineChart from '@/components/LineChart'
+  import PackageInfo from '@/components/PackageInfo'
+
+  import { dateToYear, dateToDay, dateBeautify } from '../utils/dateFormatter'
+  import { removeDuplicate, getDownloadsPerYear } from '../utils/downloadFormatter.js'
 
   export default {
     components: {
       LineChart,
+      PackageInfo,
       Datepicker
     },
     data () {
@@ -54,12 +69,16 @@
         packageName: '',
         loaded: false,
         downloads: [],
+        downloadsYear: [],
         labels: [],
+        labelsYear: [],
         showError: false,
         showSettings: false,
         errorMessage: 'Please enter a package name',
         periodStart: '',
-        periodEnd: new Date()
+        periodEnd: new Date(),
+        rawData: '',
+        totalDownloads: ''
       }
     },
     mounted () {
@@ -70,13 +89,16 @@
     },
     computed: {
       _endDate () {
-        return moment(this.periodEnd).format('YYYY-MM-DD')
+        return dateToDay(this.periodEnd)
       },
       _startDate () {
-        return moment(this.periodStart).format('YYYY-MM-DD')
+        return dateToDay(this.periodStart)
       },
       period () {
         return this.periodStart ? `${this._startDate}:${this._endDate}` : 'last-month'
+      },
+      formattedPeriod () {
+        return this.periodStart ? `${dateBeautify(this._startDate)} - ${dateBeautify(this._endDate)}` : 'last-month'
       }
     },
     methods: {
@@ -92,16 +114,25 @@
         this.resetState()
         axios.get(`https://api.npmjs.org/downloads/range/${this.period}/${this.package}`)
           .then(response => {
-            this.downloads = response.data.downloads.map(download => download.downloads)
-            this.labels = response.data.downloads.map(download => download.day)
+            this.rawData = response.data.downloads
+            this.downloads = response.data.downloads.map(entry => entry.downloads)
+            this.labels = response.data.downloads.map(entry => entry.day)
             this.packageName = response.data.package
+            this.totalDownloads = this.downloads.reduce((total, download) => total + download)
             this.setURL()
             this.loaded = true
+            this.formatYear()
           })
           .catch(err => {
             this.errorMessage = err.response.data.error
             this.showError = true
           })
+      },
+      formatYear () {
+        this.labelsYear = this.rawData
+          .map(entry => dateToYear(entry.day))
+          .reduce(removeDuplicate, [])
+        this.downloadsYear = getDownloadsPerYear(this.rawData)
       },
       setURL () {
         history.pushState({ info: `npm-stats ${this.package}` }, this.package, `/#/${this.package}`)
