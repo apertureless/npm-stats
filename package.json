@@ -85,6 +85,7 @@
     "sinon-chai": "^2.8.0",
     "url-loader": "^0.5.8",
     "vue-loader": "^11.1.4",
+    "vue-meta": "^1.2.0",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1",
