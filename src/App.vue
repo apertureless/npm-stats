@@ -14,7 +14,13 @@ import CookieLaw from 'vue-cookie-law'
 
 export default {
   components: { JHeader, JFooter, CookieLaw },
-  name: 'app'
+  name: 'app',
+  metaInfo: {
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'theme-color', content: '#ffffff' }
+    ]
+  }
 }
 </script>
 

@@ -106,6 +106,13 @@
       PackageInfo,
       Datepicker
     },
+    metaInfo: {
+      title: '📈 npm-stats',
+      titleTemplate: '%s | npm package download statistics',
+      meta: {
+        description: 'View your npm package download statistics with beautiful charts. | npm-stats'
+      }
+    },
     data () {
       return {
         package: null,
