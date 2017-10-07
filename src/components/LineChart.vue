@@ -18,7 +18,10 @@
           scales: {
             yAxes: [{
               ticks: {
-                beginAtZero: true
+                beginAtZero: false,
+                callback: (value, index, values) => {
+                  return this.formatNumber(value)
+                }
               },
               gridLines: {
                 display: true
@@ -53,6 +56,23 @@
           }
         ]
       }, this.options)
+    },
+    methods: {
+      formatNumber (num) {
+        let numString = Math.round(num).toString()
+        let numberFormatMapping = [[6, 'm'], [3, 'k']]
+        for (let [numberOfDigits, replacement] of numberFormatMapping) {
+          if (numString.length > numberOfDigits) {
+            let decimal = ''
+            if (numString[numString.length - numberOfDigits] !== '0') {
+              decimal = '.' + numString[numString.length - numberOfDigits]
+            }
+            numString = numString.substr(0, numString.length - numberOfDigits) + decimal + replacement
+            break
+          }
+        }
+        return numString
+      }
     }
   })
 </script>
