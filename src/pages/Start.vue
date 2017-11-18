@@ -106,13 +106,15 @@
       PackageInfo,
       Datepicker
     },
-    metaInfo: {
-      title: '📈 npm-stats',
-      titleTemplate: '%s | npm package download statistics',
-      meta: {
-        description: 'View your npm package download statistics with beautiful charts. | npm-stats'
+    metaInfo () {
+      return {
+        title: this.packageName ? `${this.packageName} | 📈 npm-stats` : '📈 npm-stats | Download statistics for your npm packages',
+        meta: [
+          { vmid: 'description', name: 'description', content: 'View your npm package download statistics with beautiful charts' }
+        ]
       }
     },
+
     data () {
       return {
         package: null,
@@ -136,13 +138,20 @@
         totalDownloads: ''
       }
     },
+
     mounted () {
       if (this.$route.params.package) {
         this.package = this.$route.params.package
         this.requestData()
       }
     },
+
     computed: {
+      metaHeadTitle () {
+        return this.packageName
+          ? `📈 npm-stats for ${this.packageName}`
+          : `📈 npm-stats`
+      },
       _endDate () {
         return dateToDay(this.periodEnd)
       },
@@ -156,6 +165,7 @@
         return this.periodStart ? `${dateBeautify(this._startDate)} - ${dateBeautify(this._endDate)}` : 'last-month'
       }
     },
+
     methods: {
       resetState () {
         this.loaded = false
