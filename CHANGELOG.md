@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/apertureless/npm-stats/compare/v1.3.0...v1.4.0) (2018-03-12)
+
+
+### Bug Fixes
+
+* **footer:** Add links to twitter and target news ([dadcefa](https://github.com/apertureless/npm-stats/commit/dadcefa))
+
+
+### Features
+
+* **charts:** Add download button to save charts as png ([3ee43ec](https://github.com/apertureless/npm-stats/commit/3ee43ec))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/apertureless/npm-stats/compare/v1.2.0...v1.3.0) (2018-03-12)
 
