@@ -76,7 +76,7 @@
           <hr>
         </div>
         <div class="Chart__content">
-          <line-chart v-if="loaded" :chart-data="downloadsYear" :chart-labels="labelsYear"></line-chart>
+          <bar-chart v-if="loaded" :chart-data="downloadsYear" :chart-labels="labelsYear"></bar-chart>
         </div>
       </div>
     </div>
@@ -88,6 +88,7 @@
   import Datepicker from 'vuejs-datepicker'
 
   import LineChart from '@/components/LineChart'
+  import BarChart from '@/components/BarChart'
   import PackageInfo from '@/components/PackageInfo'
 
   import {
@@ -103,6 +104,7 @@
   export default {
     components: {
       LineChart,
+      BarChart,
       PackageInfo,
       Datepicker
     },
