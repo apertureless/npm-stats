@@ -3,11 +3,11 @@
     <div class="container">
       <div class="Search__container">
         <input
+          v-model="package"
           class="Search__input"
           @keyup.enter="requestData"
           placeholder="npm package name"
           type="search" name="search"
-          v-model="package"
         >
         <button class="Search__button" @click="requestData">Find</button>
         <span class="Search__icon" @click="toggleSettings()">
@@ -117,7 +117,7 @@
 
     data () {
       return {
-        package: null,
+        package: '',
         packageName: '',
         loaded: false,
         loading: false,
