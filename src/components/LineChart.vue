@@ -52,7 +52,17 @@
             yPadding: 14,
             displayColors: false,
             mode: 'index',
-            intersect: false
+            intersect: false,
+            callbacks: {
+              title: tooltipItem => {
+                return `🗓 ${tooltipItem[0].xLabel}`
+              },
+              label: (tooltipItem, data) => {
+                let dataset = data.datasets[tooltipItem.datasetIndex]
+                let currentValue = dataset.data[tooltipItem.index]
+                return `📦 ${currentValue.toLocaleString()}`
+              }
+            }
           },
           legend: {
             display: false

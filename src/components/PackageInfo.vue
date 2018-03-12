@@ -3,7 +3,7 @@
     <h1 class="Package__title">{{ packageName }}</h1>
     <div class="Package__info">
       <div class="Package__info-item">
-        <span>{{ totalDownloads }}</span><span class="info-label">Total Downloads</span>
+        <span>{{ totalDownloads.toLocaleString() }}</span><span class="info-label">Total Downloads</span>
       </div>
       <div class="Package__info-item">
         <span>{{ period }}</span><span class="info-label">Period</span>
