@@ -350,7 +350,7 @@
   .Chart__container {
     border-radius: $base-border-radius;
     background-color: #fff;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.30);
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
     padding: rem(20) rem(40);
     margin: rem(50) 0;
   }
