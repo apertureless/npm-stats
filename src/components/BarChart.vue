@@ -1,8 +1,10 @@
 <script>
   import { HorizontalBar } from 'vue-chartjs'
+  import Printable from '@/mixins/Printable'
 
   export default {
     extends: HorizontalBar,
+    mixins: [Printable],
     props: {
       chartData: {
         type: Array | Object,
@@ -106,6 +108,10 @@
           }
         ]
       }, this.options)
+
+      setTimeout(() => {
+        this.download()
+      }, 500)
     },
     methods: {
       formatNumber (num) {
