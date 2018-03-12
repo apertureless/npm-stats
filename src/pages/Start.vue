@@ -176,6 +176,7 @@
       requestData () {
         if (this.package === null || this.package === '' || this.package === 'undefined') {
           this.showError = true
+          this.loading = false
           return
         }
         this.resetState()
@@ -195,6 +196,7 @@
           .catch(err => {
             this.errorMessage = err.response.data.error
             this.showError = true
+            this.loading = false
           })
       },
       validateDataRequest () {
@@ -259,7 +261,7 @@
 
   .content {
     background: color(ghost-white);
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 191px);
   }
 
   .title {
@@ -288,9 +290,13 @@
       padding: rem(100) 0 rem(20) 0;
       margin: 0 auto;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      @include media($sm-up) {
+        flex-direction: row;
+      }
     }
     @include has(input) {
       padding: rem(20);
