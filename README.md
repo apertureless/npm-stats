@@ -10,6 +10,13 @@
 
 [www.npm-stats.org](http://www.npm-stats.org)
 
+## 👨‍🏫 Tutorial
+
+If you want you can learn how to build a similar service with following tutorials:
+
+- [Let’s Build a Web App with Vue, Chart.js and an API](https://hackernoon.com/lets-build-a-web-app-with-vue-chart-js-and-an-api-544eb81c4b44)
+- [Let’s Build a Web App with Vue, Chart.js and an API Part II](https://hackernoon.com/lets-build-a-web-app-with-vue-chart-js-and-an-api-part-ii-39781b1d5acf)
+
 ## Build Setup
 
 ``` bash
