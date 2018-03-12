@@ -60,7 +60,7 @@
             intersect: false,
             callbacks: {
               title: tooltipItem => {
-                return `🗓 ${tooltipItem[0].xLabel}`
+                return `🗓 ${tooltipItem[0].yLabel}`
               },
               label: (tooltipItem, data) => {
                 let dataset = data.datasets[tooltipItem.datasetIndex]
