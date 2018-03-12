@@ -1,7 +1,8 @@
 <template>
   <footer>
-   <span> Build with <a href="https://vuejs.org/">Vue.js</a> and <a href="http://vue-chartjs.org/#/">vue-chartjs</a></span>
-   <span>For issues or feature requests visit <a href="https://github.com/apertureless/npm-stats">Github</a></span>
+   <span> Build with <a href="https://vuejs.org/" target="_new">Vue.js</a> and <a href="http://vue-chartjs.org/#/" target="_new">vue-chartjs</a></span>
+   <span>💪 Made by <a href="https://twitter.com/apertureless" target="_new">apertureless</a></span>
+   <span>For issues or feature requests visit <a href="https://github.com/apertureless/npm-stats" target="_new">Github</a></span>
   </footer>
 </template>
 
