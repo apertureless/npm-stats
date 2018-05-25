@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/apertureless/npm-stats/compare/v1.4.0...v1.5.0) (2018-05-25)
+
+
+### Features
+
+* **privacy:** Remove GA ([bf9e6e2](https://github.com/apertureless/npm-stats/commit/bf9e6e2))
+* **privacy:** Remove vue-cookie-law as no longer needed ([d9f2e27](https://github.com/apertureless/npm-stats/commit/d9f2e27))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/apertureless/npm-stats/compare/v1.3.0...v1.4.0) (2018-03-12)
 
