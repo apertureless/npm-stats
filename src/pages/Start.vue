@@ -210,7 +210,6 @@
           })
       },
       validateDataRequest () {
-        console.log('ValidateData')
         if (this.packageName !== '' && this.periodStart !== '') {
           this.requestData()
         }
@@ -240,25 +239,15 @@
       },
       setURL () {
         history.pushState({ info: `npm-stats ${this.package}` }, this.package, `/#/${this.package}`)
-        this.$ga.page({
-          page: `/#/${this.package}`,
-          title: this.package,
-          location: window.location.href
-        })
       },
       toggleSettings () {
         this.showSettings = !this.showSettings
-        this.$ga.event({
-          eventCategory: 'Settings',
-          eventAction: 'toggle'
-        })
       },
       setDailyPng (payload) {
         this.dailyPng = payload
       },
       setWeeklyPng (payload) {
         this.weeklyPng = payload
-        console.log('weekly', payload)
       },
       setMonthlyPng (payload) {
         this.monthlyPng = payload
