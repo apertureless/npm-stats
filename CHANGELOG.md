@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.1"></a>
+## [1.5.1](https://github.com/apertureless/npm-stats/compare/v1.5.0...v1.5.1) (2018-05-27)
+
+
+### Bug Fixes
+
+* **privacy:** Remove vue ga script ([5ab2879](https://github.com/apertureless/npm-stats/commit/5ab2879))
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/apertureless/npm-stats/compare/v1.4.0...v1.5.0) (2018-05-25)
 
