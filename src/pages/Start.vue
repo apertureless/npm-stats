@@ -238,7 +238,12 @@
         this.downloadsWeek = groupData(this.rawData, dateToWeek)
       },
       setURL () {
-        history.pushState({ info: `npm-stats ${this.package}` }, this.package, `/#/${this.package}`)
+        this.$router.push({
+          name: 'Package',
+          params: {
+            package: this.package
+          }
+        })
       },
       toggleSettings () {
         this.showSettings = !this.showSettings

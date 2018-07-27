@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <j-header></j-header>
-    <router-view></router-view>
+    <router-view :key="$route.path"></router-view>
     <j-footer></j-footer>
   </div>
 </template>
