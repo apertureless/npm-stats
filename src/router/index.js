@@ -15,6 +15,7 @@ export default new Router({
     },
     {
       path: '/:package',
+      name: 'Package',
       component: StartPage
     }
   ]
