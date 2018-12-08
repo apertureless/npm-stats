@@ -17,7 +17,7 @@
     "axios": "^0.18.0",
     "chart.js": "^2.7.2",
     "moment": "^2.21.0",
-    "vue": "^2.5.15",
+    "vue": "^2.5.17",
     "vue-analytics": "^5.9.1",
     "vue-chartjs": "^3.2.1",
     "vue-cookie-law": "^1.4.0",
